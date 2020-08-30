@@ -13,7 +13,8 @@ FROM openjdk:11
 COPY --from=build /usr/src/app/target/*.jar /usr/app/app.jar
 RUN useradd -m myuser && echo "Europe/Berlin" > /etc/timezone && \
     ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata
+    dpkg-reconfigure -f noninteractive tzdata && \
+    mkdir /usr/app/conf
 USER myuser
 EXPOSE 8080
-CMD java -jar /usr/app/app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/usr/app/app.jar", "--spring.config.location=classpath:/usr/app/conf"]
