@@ -17,4 +17,4 @@ RUN useradd -m myuser && echo "Europe/Berlin" > /etc/timezone && \
     mkdir /usr/app/conf
 USER myuser
 EXPOSE 8080
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/usr/app/app.jar", "--spring.config.location=classpath:/usr/app/conf"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/usr/app/app.jar", "--spring.config.location=/usr/app/conf/application-prod.properties"]

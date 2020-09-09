@@ -24,3 +24,4 @@ webpack.generated.js
 /src/main/resources/application-prod.properties
 /src/main/resources/application-dev.properties
 /nbactions.xml
+/config/application-prod.properties
