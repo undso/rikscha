@@ -10,21 +10,6 @@
   flex-direction: column;
 }
 
-#editor-layout {
-  padding: var(--lumo-space-l);
-  width: 400px;
-}
-
-#button-layout {
-  width: 100%;
-  flex-wrap: wrap-reverse;
-  justify-content: flex-end;
-}
-
-#fahrt-view #wrapper {
-  flex-grow: 1;
-}
-
 .grid-wrapper {
   flex-grow: 1;
   width: 100%;
@@ -35,7 +20,20 @@
   height: 100%;
 }
 
-.gridTable__column {
-  width: 50px;
-  flex-grow: 0;
+#editor-layout {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+#editor {
+  padding: var(--lumo-space-l);
+  flex-grow: 1;
+}
+
+#button-layout {
+  width: 100%;
+  flex-wrap: wrap;
+  background-color: var(--lumo-contrast-5pct);
+  padding: var(--lumo-space-s) var(--lumo-space-l);
 }
