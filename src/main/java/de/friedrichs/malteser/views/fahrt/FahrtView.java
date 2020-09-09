@@ -57,7 +57,7 @@ public class FahrtView extends Div {
     private final Select<Fahrgast> fahrgast = new Select<>();
     private final Select<String> telefon = new Select<>();
     private final Select<Pilot> pilot = new Select<>();
-    private final DateTimePicker timestart = new DateTimePicker(LocalDateTime.now());
+    private final DateTimePicker timestart = new DateTimePicker(LocalDateTime.now().plusDays(1).withHour(10).withMinute(0).withSecond(0));
     private final NumberField dauerPlan = new NumberField("Geplante Dauer", "(Std.)");
     private final TextField adresse = new TextField("Adresse");
     private final TextField forumsLink = new TextField("Forums Link");
@@ -164,7 +164,6 @@ public class FahrtView extends Div {
     
     private void listFahrten(){
         grid.setItems(this.fahrtRepository.findByTimestartGreaterThanOrderByTimestartDesc(LocalDateTime.now()));
-        //grid.sort(new GridSortOrderBuilder<Fahrt>().thenDesc(grid.getColumns().get(0)).build());
     }
 
     private void initGrid() {
